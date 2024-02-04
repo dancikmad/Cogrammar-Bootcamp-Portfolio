@@ -1,6 +1,6 @@
 # My Bootcamp Portfolio
 
-Welcome to my GitHub repository! This is a collection of coding challenges and projects I completed during my coding bootcamp. Here, you'll find a variety of work that demonstrates my skills and progress as a developer.
+Welcome to my GitHub repository! This is a collection of coding challenges and projects I completed during my coding bootcamp with CoGrammar. Here, you'll find a variety of work that demonstrates my skills and progress as a developer.
 
 ## Table of Contents
 
