@@ -3,12 +3,6 @@ import math
 
 def display():
     """Function that displays 'investment' or 'bond' options."""
-    # print(
-    #     "investment - to calculate the amount of interest you'll earn on your investment"
-    # )
-    # print("bond       - to calculate the amount you'll have to pay on a home loan")
-    # print("\nEnter either 'investment' or 'bond' from the menu to proceed: ")
-
     msg = "\ninvestment - to calculate the amount of interest you'll earn on your investment\n"
     msg += "bond       - to calculate the amount you'll have to pay on a home loan\n\n"
     msg += "Enter either 'investment' or 'bond' from the menu to proceed: "
