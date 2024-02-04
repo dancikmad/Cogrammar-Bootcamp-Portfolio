@@ -3,11 +3,17 @@ import math
 
 def display():
     """Function that displays 'investment' or 'bond' options."""
-    print(
-        "investment - to calculate the amount of interest you'll earn on your investment"
-    )
-    print("bond       - to calculate the amount you'll have to pay on a home loan")
-    print("\nEnter either 'investment' or 'bond' from the menu to proceed: ")
+    # print(
+    #     "investment - to calculate the amount of interest you'll earn on your investment"
+    # )
+    # print("bond       - to calculate the amount you'll have to pay on a home loan")
+    # print("\nEnter either 'investment' or 'bond' from the menu to proceed: ")
+
+    msg = "\ninvestment - to calculate the amount of interest you'll earn on your investment\n"
+    msg += "bond       - to calculate the amount you'll have to pay on a home loan\n\n"
+    msg += "Enter either 'investment' or 'bond' from the menu to proceed: "
+
+    print(msg)
 
 
 def choice():
@@ -16,7 +22,7 @@ def choice():
     while True:
         user_choice = input().lower()
 
-        if user_choice == "investment" or user_choice == "bond":
+        if user_choice in ["investment", "bond"]:
             break
         else:
             print("Invalid choice. Please enter 'investment' or 'bond'")
@@ -28,21 +34,35 @@ def calculate_investment():
     """A function that calculates the investment using interest formula"""
 
     # Get the input from the user
-    deposit = float(input("How much money you want do deposit: "))
-    interest_rate = float(input("Enter the interest rate as a percentage (%): ")) / 100
-    years = int(input("Enter the number of years you plan of investing: "))
-    interest_type = input("Choose the option 'simple' or 'compund' interest: ").lower()
-
-    if interest_type == "simple":
-        amount = deposit * (1 + interest_rate * years)
-    elif interest_type == "compound":
-        amount = deposit * math.pow((1 + interest_rate), years)
-    else:
-        # Handle invalid interest type
-        print("Invalid interest type. Please enter 'simple' or 'compund'")
+    try:
+        deposit = float(input("How much money you want to deposit: "))
+        interest_rate = (
+            float(input("Enter the interest rate as a percentage (%): ")) / 100
+        )
+        years = int(input("Enter the number of years you plan on investing: "))
+    except ValueError:
+        print(
+            "Invalid input. Please enter numeric values for deposit, interest rate, and years."
+        )
         return
 
-    print(f"Your investment will be worth ${amount:.2f} after {years} years. ")
+    interest_type = input("Choose the option 'simple' or 'compound' interest: ").lower()
+
+    while True:
+        if interest_type == "simple":
+            amount = deposit * (1 + interest_rate * years)
+            break
+        elif interest_type == "compound":
+            amount = deposit * math.pow((1 + interest_rate), years)
+            break
+        else:
+            # Handle invalid interest type
+            print("Invalid interest type. Please enter 'simple' or 'compound'")
+            interest_type = input(
+                "Choose the option 'simple' or 'compound' interest: "
+            ).lower()
+
+    print(f"Your investment will be worth ${amount:.2f} after {years} years.")
 
 
 def calculate_bond():
