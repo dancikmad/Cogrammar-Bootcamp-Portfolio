@@ -1,0 +1,5 @@
+admin;password
+captain_america;steve_rogers
+iron_man;tony_stark
+mighty_thor;mjolnir
+harry.potter;gryffindor
